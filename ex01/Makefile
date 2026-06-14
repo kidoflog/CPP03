@@ -6,13 +6,13 @@
 #    By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/12 16:22:21 by kkido             #+#    #+#              #
-#    Updated: 2026/06/14 17:14:11 by kkido            ###   ########.fr        #
+#    Updated: 2026/06/14 21:37:09 by kkido            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = scavtrap
 
-SRCS = main.cpp ClapTrap.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJDIR = objs
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))

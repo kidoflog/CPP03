@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/14 12:51:06 by kkido             #+#    #+#             */
-/*   Updated: 2026/06/14 19:28:46 by kkido            ###   ########.fr       */
+/*   Updated: 2026/06/14 21:42:12 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,30 @@
 #include "ScavTrap.hpp"
 
 int main() {
-  ClapTrap clappy("Clappy");
-  ClapTrap target("TargetDummy");
-
-  clappy.attack("TargetDummy");
-  target.takeDamage(5);
-  clappy.beRepaired(3);
-
-  target.takeDamage(20);
-  target.attack("Clappy");
-  target.beRepaired(5);
-
-  for (int i = 0; i < 8; i++) {
-    clappy.beRepaired(1);
+  ScavTrap scav("Scavy");
+  scav.attack("TargetDummy");
+  ScavTrap gater("Gater");
+  gater.guardGate();
+  gater.guardGate();
+  gater.attack("Intruder");
+  ScavTrap weakling("NoEnergyBot");
+  std::cout << "--- エネルギーを50回消費させます ---" << std::endl;
+  for (int i = 0; i < 50; i++) {
+    weakling.attack("Training Dummy");
   }
-  clappy.attack("TargetDummy");
-  clappy.beRepaired(1);
+  weakling.attack("Training Dummy");
+  weakling.beRepaired(10);
+  ScavTrap target("FragileBot");
+  target.takeDamage(120);
+  target.attack("Enemy");
+  target.beRepaired(10);
+  ScavTrap original("Original");
+  original.guardGate();
+  ScavTrap copy(original);
+  copy.attack("Enemy");
+  ScavTrap assign;
+  assign = original;
+  assign.attack("Enemy");
 
   return 0;
 }
