@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/14 13:33:18 by kkido             #+#    #+#             */
-/*   Updated: 2026/06/14 15:21:30 by kkido            ###   ########.fr       */
+/*   Updated: 2026/06/14 17:08:19 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,12 @@ ClapTrap::~ClapTrap() {
 }
 
 void ClapTrap::attack(const std::string& target) {
-  if (!has_enough_hp() || !has_enough_ep()) return;
+  if (!has_enough_hp() || !has_enough_ep()) {
+    std::cout << "Attack failed..." << std::endl;
+    return;
+  }
   std::cout << "ClapTrap " << this->_name << " attacks " << target
-            << " , causing " << this->_attack_damage << " points of damage!"
+            << ", causing " << this->_attack_damage << " points of damage!"
             << std::endl;
   _energy_points--;
 }
@@ -62,18 +65,21 @@ void ClapTrap::attack(const std::string& target) {
 void ClapTrap::takeDamage(unsigned int amount) {
   if (!has_enough_hp()) return;
   if (amount >= _hit_points) {
-    std::cout << "ClapTrap " << this->_name << " take " << _hit_points
+    std::cout << "ClapTrap " << this->_name << " takes " << _hit_points
               << " points of damage!" << std::endl;
     _hit_points = 0;
   } else {
-    std::cout << "ClapTrap " << this->_name << " take " << amount
+    std::cout << "ClapTrap " << this->_name << " takes " << amount
               << " points of damage!" << std::endl;
     _hit_points = _hit_points - amount;
   }
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-  if (!has_enough_hp() || !has_enough_ep()) return;
+  if (!has_enough_hp() || !has_enough_ep()) {
+    std::cout << "Repair failed..." << std::endl;
+    return;
+  }
   std::cout << "ClapTrap " << this->_name << " is repaired " << amount
             << " points of health!" << std::endl;
   _hit_points = _hit_points + amount;
