@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/14 13:33:18 by kkido             #+#    #+#             */
-/*   Updated: 2026/06/14 17:08:19 by kkido            ###   ########.fr       */
+/*   Updated: 2026/06/14 20:05:36 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ClapTrap::ClapTrap()
       _hit_points(10),
       _energy_points(10),
       _attack_damage(0) {
-  std::cout << "Default constructor called" << std::endl;
+  std::cout << "ClapTrap: Default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& name)
@@ -25,11 +25,11 @@ ClapTrap::ClapTrap(const std::string& name)
       _hit_points(10),
       _energy_points(10),
       _attack_damage(0) {
-  std::cout << "String constructor called" << std::endl;
+  std::cout << "ClapTrap: String constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& src) {
-  std::cout << "Copy constructor called" << std::endl;
+  std::cout << "ClapTrap: Copy constructor called" << std::endl;
   this->_name = src._name;
   this->_hit_points = src._hit_points;
   this->_energy_points = src._energy_points;
@@ -37,7 +37,8 @@ ClapTrap::ClapTrap(const ClapTrap& src) {
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& src) {
-  std::cout << "Copy assignment operator called" << std::endl;
+  std::cout << "ClapTrap: Copy assignment operator called"
+            << std::endl;
   if (this != &src) {
     this->_name = src._name;
     this->_hit_points = src._hit_points;
@@ -48,7 +49,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& src) {
 }
 
 ClapTrap::~ClapTrap() {
-  std::cout << "Destructor called" << std::endl;
+  std::cout << "ClapTrap: Destructor called" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target) {
