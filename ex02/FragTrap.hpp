@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 16:46:58 by kkido             #+#    #+#             */
-/*   Updated: 2026/06/20 16:57:00 by kkido            ###   ########.fr       */
+/*   Updated: 2026/06/22 17:00:18 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,11 @@ class FragTrap : public ClapTrap {
   FragTrap(const FragTrap& src);
   FragTrap& operator=(const FragTrap& src);
   ~FragTrap();
+  void attack(const std::string& target);
   void highFivesGuys();
+
+ private:
+  bool is_highfive;
 };
 
 #endif

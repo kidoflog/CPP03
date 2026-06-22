@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/14 19:27:25 by kkido             #+#    #+#             */
-/*   Updated: 2026/06/14 21:40:09 by kkido            ###   ########.fr       */
+/*   Updated: 2026/06/22 17:10:27 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ ScavTrap::ScavTrap(const ScavTrap& src) : ClapTrap(src) {
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& src) {
+  std::cout << "ScavTrap: Copy assignment operator called" << std::endl;
   if (this != &src) {
     ClapTrap::operator=(src);
     this->is_guard = src.is_guard;
   }
-  std::cout << "ScavTrap: Copy assignment operator called" << std::endl;
   return *this;
 }
 
@@ -56,6 +56,10 @@ void ScavTrap::attack(const std::string& target) {
 }
 
 void ScavTrap::guardGate() {
+  if (!has_enough_hp() || !has_enough_ep()) {
+    std::cout << "Attack failed..." << std::endl;
+    return;
+  }
   if (is_guard) {
     std::cout << "ScavTrap " << _name << " is already Gate keeper mode!"
               << std::endl;
