@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/14 13:33:18 by kkido             #+#    #+#             */
-/*   Updated: 2026/06/14 20:13:45 by kkido            ###   ########.fr       */
+/*   Updated: 2026/06/22 17:13:14 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,12 @@ void ClapTrap::attack(const std::string& target) {
 void ClapTrap::takeDamage(unsigned int amount) {
   if (!has_enough_hp()) return;
   if (amount >= _hit_points) {
-    std::cout << "ClapTrap " << this->_name << " takes " << _hit_points
-              << " points of damage!" << std::endl;
+    std::cout << this->_name << " takes " << _hit_points << " points of damage!"
+              << std::endl;
     _hit_points = 0;
   } else {
-    std::cout << "ClapTrap " << this->_name << " takes " << amount
-              << " points of damage!" << std::endl;
+    std::cout << this->_name << " takes " << amount << " points of damage!"
+              << std::endl;
     _hit_points = _hit_points - amount;
   }
 }
@@ -88,16 +88,15 @@ void ClapTrap::beRepaired(unsigned int amount) {
     std::cout << "Repair failed..." << std::endl;
     return;
   }
-  std::cout << "ClapTrap " << this->_name << " is repaired " << amount
-            << " points of health!" << std::endl;
+  std::cout << this->_name << " is repaired " << amount << " points of health!"
+            << std::endl;
   _hit_points = _hit_points + amount;
   _energy_points--;
 }
 
 bool ClapTrap::has_enough_hp() {
   if (_hit_points <= 0) {
-    std::cout << "ClapTrap " << this->_name << "'s hit point is zero!"
-              << std::endl;
+    std::cout << this->_name << "'s hit point is zero!" << std::endl;
     return false;
   }
   return true;
@@ -105,8 +104,7 @@ bool ClapTrap::has_enough_hp() {
 
 bool ClapTrap::has_enough_ep() {
   if (_energy_points <= 0) {
-    std::cout << "ClapTrap " << this->_name << "'s energy point is zero!"
-              << std::endl;
+    std::cout << this->_name << "'s energy point is zero!" << std::endl;
     return false;
   }
   return true;
