@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/14 13:33:18 by kkido             #+#    #+#             */
-/*   Updated: 2026/06/22 17:13:14 by kkido            ###   ########.fr       */
+/*   Updated: 2026/06/22 17:29:49 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ ClapTrap::ClapTrap(const std::string& name, const unsigned int new_hp,
 }
 
 ClapTrap::ClapTrap(const ClapTrap& src) {
-  std::cout << "Copy constructor called" << std::endl;
+  std::cout << "ClapTrap: Copy constructor called" << std::endl;
   this->_name = src._name;
   this->_hit_points = src._hit_points;
   this->_energy_points = src._energy_points;

@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/14 19:27:25 by kkido             #+#    #+#             */
-/*   Updated: 2026/06/22 17:10:27 by kkido            ###   ########.fr       */
+/*   Updated: 2026/06/22 17:28:58 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void ScavTrap::attack(const std::string& target) {
 }
 
 void ScavTrap::guardGate() {
-  if (!has_enough_hp() || !has_enough_ep()) {
-    std::cout << "Attack failed..." << std::endl;
+  if (!has_enough_hp()) {
+    std::cout << "Guard failed..." << std::endl;
     return;
   }
   if (is_guard) {

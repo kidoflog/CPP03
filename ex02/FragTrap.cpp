@@ -6,14 +6,14 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 16:46:55 by kkido             #+#    #+#             */
-/*   Updated: 2026/06/22 17:13:32 by kkido            ###   ########.fr       */
+/*   Updated: 2026/06/22 17:27:33 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap() : ClapTrap("Anonymous", 100, 100, 30), is_highfive(false) {
-  std::cout << "ClapTrap: Default constructor called" << std::endl;
+  std::cout << "FragTrap: Default constructor called" << std::endl;
 }
 
 FragTrap::FragTrap(const std::string& name)
