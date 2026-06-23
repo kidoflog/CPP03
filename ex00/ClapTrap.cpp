@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/14 13:33:18 by kkido             #+#    #+#             */
-/*   Updated: 2026/06/14 20:05:36 by kkido            ###   ########.fr       */
+/*   Updated: 2026/06/23 13:17:28 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ ClapTrap::ClapTrap(const ClapTrap& src) {
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& src) {
-  std::cout << "ClapTrap: Copy assignment operator called"
-            << std::endl;
+  std::cout << "ClapTrap: Copy assignment operator called" << std::endl;
   if (this != &src) {
     this->_name = src._name;
     this->_hit_points = src._hit_points;
@@ -77,13 +76,19 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
+  unsigned int repair;
   if (!has_enough_hp() || !has_enough_ep()) {
     std::cout << "Repair failed..." << std::endl;
     return;
   }
-  std::cout << "ClapTrap " << this->_name << " is repaired " << amount
+  if (_hit_points > UINT_MAX - amount) {
+    repair = UINT_MAX - amount;
+  } else {
+    repair = amount;
+  }
+  std::cout << "ClapTrap " << this->_name << " is repaired " << repair
             << " points of health!" << std::endl;
-  _hit_points = _hit_points + amount;
+  _hit_points = _hit_points + repair;
   _energy_points--;
 }
 

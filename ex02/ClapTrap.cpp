@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/14 13:33:18 by kkido             #+#    #+#             */
-/*   Updated: 2026/06/22 17:13:16 by kkido            ###   ########.fr       */
+/*   Updated: 2026/06/23 13:25:57 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,13 +84,19 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
+  unsigned int repair;
   if (!has_enough_hp() || !has_enough_ep()) {
     std::cout << "Repair failed..." << std::endl;
     return;
   }
-  std::cout << this->_name << " is repaired " << amount << " points of health!"
+  if (_hit_points > UINT_MAX - amount) {
+    repair = UINT_MAX - amount;
+  } else {
+    repair = amount;
+  }
+  std::cout << this->_name << " is repaired " << repair << " points of health!"
             << std::endl;
-  _hit_points = _hit_points + amount;
+  _hit_points = _hit_points + repair;
   _energy_points--;
 }
 
